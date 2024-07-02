@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Model Viewer - DOG</title>
+</head>
+<body>
+    <a id="ar-link" href="#" rel="ar">View DOG in AR</a>
+    <script>
+        // Function to detect the operating system
+        function getMobileOperatingSystem() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                return "Android";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            } else {
+                return "unknown";
+            }
+        }
+
+        // Set the appropriate AR model link based on the OS
+        const os = getMobileOperatingSystem();
+        const arLink = document.getElementById('ar-link');
+
+        if (os === "iOS") {
+            arLink.href = "https://omerkonan.github.io/ar-model-viewer/ios_models/dog.usdz";
+        } else if (os === "Android") {
+            arLink.href = "https://omerkonan.github.io/ar-model-viewer/android_models/dog.glb";
+        } else {
+            arLink.href = "#";
+            arLink.innerText = "AR not supported on this device";
+        }
+    </script>
+</body>
+</html>
