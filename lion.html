@@ -28,7 +28,9 @@
         if (os === "iOS") {
             arLink.href = "https://omerkonan.github.io/ar-model-viewer/ios_models/lion.usdz";
         } else if (os === "Android") {
-            arLink.href = "intent://arvr.google.com/scene-viewer/1.0?file=https://omerkonan.github.io/ar-model-viewer/android_models/lion.glb#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;";
+            // arLink.href = "intent://arvr.google.com/scene-viewer/1.0?file=#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;";
+            arLink.href="intent://arvr.google.com/scene-viewer/1.0?file=https://omerkonan.github.io/ar-model-viewer/android_models/lion.glb&mode=ar_only#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;";
+
         } else {
             arLink.href = "#";
             arLink.innerText = "AR not supported on this device";
